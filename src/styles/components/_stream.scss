@@ -74,9 +74,8 @@
   display: flex;
   justify-content: flex-end;
   padding: 1rem;
-  
+
   @include response(port-tablet) {
-   
   }
   @include response(phone) {
     width: 70rem;
@@ -94,17 +93,17 @@
     top: -2.5rem;
     right: 5rem;
     @include response(port-tablet) {
-        top: -5rem;
-        right: 5rem;
-      }
+      top: -5rem;
+      right: 5rem;
+    }
   }
   &--min-max {
     top: -2.5rem;
     right: 8rem;
     @include response(port-tablet) {
-        top: -5rem;
-        right: 11rem;
-      }
+      top: -5rem;
+      right: 11rem;
+    }
   }
   &--min-max,
   &--close {
@@ -137,7 +136,7 @@
     align-items: center;
     color: white;
     @include response(phone) {
-        width: 54rem;
-      }
+      width: 54rem;
+    }
   }
 }

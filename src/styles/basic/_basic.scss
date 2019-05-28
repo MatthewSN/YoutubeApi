@@ -1,0 +1,26 @@
+html{
+  
+    font-size: 65%;
+    @include response(large-screen){
+        font-size: 70%;
+      }
+      font-size:61%;
+      @include response(land-tablet){
+        font-size: 50%;
+      }
+      @include response(port-tablet){
+        font-size: 40%;
+      }
+      @include response(phone){
+        font-size: 30%;
+      }
+}
+
+body{
+ 
+    overflow-x: hidden;
+    background-color: $color-black2;
+    @include response(phone){
+        margin: 0;
+    }
+}

@@ -1,0 +1,49 @@
+.search-bar {
+
+
+  position: sticky;
+  top: 0;
+  background-color: $color-black1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity:0.99;
+  z-index: 100;
+  @include response(phone){
+   padding: 5rem 2rem;
+}
+  &--form {
+    width: 80%;
+  }
+  &--input {
+    @include response(port-tablet){
+        width: 100%;
+    }
+    width: 80%;
+    padding: 1rem;
+    background-color: $color-yellow1;
+    border: 5px solid $color-blue-dark1;
+    font-size: 1.5rem;
+    color: $color-black1;
+    opacity:0.99;
+    
+  }
+  &--submit {
+    @include response(port-tablet){
+        width: 100%;
+        margin: 1rem 2rem;
+    }
+    padding: 1rem;
+    border-radius: 50rem;
+    background-color: $color-black1;
+    border:3px solid $color-yellow1;
+    text-align: center;
+    color:$color-yellow1;
+    margin-left: 2rem;
+    cursor: pointer;
+    &:focus{
+        outline: 0;
+    }
+  }
+}

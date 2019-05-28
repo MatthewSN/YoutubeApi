@@ -15,7 +15,7 @@ const VideoList = props => (
           })
           .catch(err => {
             props.dispatch(
-              setVideoInfos([{ error: "Your connection is failled!" }])
+              setVideoInfos([{ error: "Your connection failled!" }])
             );
           });
       }}

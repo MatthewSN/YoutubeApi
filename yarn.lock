@@ -8155,6 +8155,11 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
+redux-thunk@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-1.0.0.tgz#e35544a10fcd9c9e3ba96083ac16c702394f4009"
+  integrity sha1-41VEoQ/NnJ47qWCDrBbHAjlPQAk=
+
 redux@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"

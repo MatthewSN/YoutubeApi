@@ -1,4 +1,6 @@
-const videoListDefaultValue = [];
+const videoListDefaultValue = [
+  
+];
 
 const videoInfos = (state = videoListDefaultValue, action) => {
   switch (action.type) {
@@ -6,6 +8,7 @@ const videoInfos = (state = videoListDefaultValue, action) => {
       return [...state, action.videoInfo];
     case "SET_VIDEO_INFO":
       return action.videoInfos;
+
     default:
       return state;
   }

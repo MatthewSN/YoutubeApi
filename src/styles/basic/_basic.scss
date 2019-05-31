@@ -8,10 +8,10 @@ html {
     font-size: 50%;
   }
   @include response(port-tablet) {
-    font-size: 40%;
+    font-size: 48%;
   }
   @include response(phone) {
-    font-size: 30%;
+    font-size: 35%;
   }
 }
 

@@ -1,6 +1,11 @@
-const videoListDefaultValue = [
-  
-];
+
+const videoListDefaultValue=[
+  {
+    url:"",
+    videoId:"",
+    title:""
+  }
+]
 
 const videoInfos = (state = videoListDefaultValue, action) => {
   switch (action.type) {

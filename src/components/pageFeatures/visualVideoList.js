@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import VideoOverView from "./videoOverView";
-import uuid from "uuid";
 import VideoStream from "./videoStream";
 class VisualVideoList extends React.Component {
   state = {
@@ -29,37 +28,45 @@ class VisualVideoList extends React.Component {
       this.setState(() => ({ isFullScreen: true }));
     }
   };
+  searchResulsEl = () => {
+    const { videoInfos, error, emptyMessage } = this.props;
+
+    return (
+      !error &&
+      !emptyMessage &&
+      videoInfos.map((item, index) => {
+        const { url, title, videoId } = item;
+
+        return (
+          <VideoOverView
+            key={videoId}
+            onVideoPlay={this.onVideoPlay}
+            videoId={videoId}
+            title={title}
+            url={url}
+          />
+        );
+      })
+    );
+  };
+  errorEl = () => {
+    const { error } = this.props;
+    return error && <h1 className="search-result--error">{error}</h1>;
+  };
+
+  emptyMessageEl = () => {
+    const { emptyMessage } = this.props;
+    console.log(emptyMessage);
+    return (
+      emptyMessage && <h1 className="search-result--error">{emptyMessage}</h1>
+    );
+  };
   render() {
     return (
       <div className="search-result">
-        {this.props.videoInfos.length > 0 &&
-          !this.props.videoInfos[0].error &&
-          this.props.videoInfos.map((item, index) => {
-            const { url } = item.snippet.thumbnails.high;
-            const { title } = item.snippet;
-            const { videoId } = item.id;
-
-            return (
-              <VideoOverView
-                key={uuid()}
-                onVideoPlay={this.onVideoPlay}
-                videoId={videoId}
-                title={title}
-                url={url}
-              />
-            );
-          })}
-
-        {this.props.videoInfos.length == 1 &&
-          this.props.videoInfos[0].error && (
-            <h1 className="search-result--error">
-              {this.props.videoInfos[0].error}
-            </h1>
-          )}
-
-        {this.props.videoInfos.length == 0 && (
-          <h1 className="search-result--error">There is nothing to show</h1>
-        )}
+        {this.searchResulsEl()}
+        {this.emptyMessageEl()}
+        {this.errorEl()}
 
         <VideoStream
           title={this.state.videoTitle}
@@ -76,7 +83,9 @@ class VisualVideoList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    videoInfos: state.videoInfos
+    videoInfos: state.videoInfos,
+    error: state.fetchStatus.error,
+    emptyMessage: state.fetchStatus.emptyMessage
   };
 };
 

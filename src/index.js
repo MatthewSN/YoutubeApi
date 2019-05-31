@@ -8,7 +8,9 @@ import { applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 const store = configureStore();
-
+store.subscribe(()=>{
+  console.log(store.getState())
+})
 const jsx = (
   <Provider store={store}>
     <AppRouter />

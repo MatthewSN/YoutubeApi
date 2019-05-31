@@ -12,7 +12,7 @@ const fetchStatus = (state = defaultFetchStatus, action) => {
         loading: state.loading,
         emptyMessage: state.emptyMessage
       };
-    case "SET_LODING":
+    case "SET_LOADING":
       return {
         error: state.error,
         loading: action.loading,

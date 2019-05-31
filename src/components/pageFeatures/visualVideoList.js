@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import VideoOverView from "./videoOverView";
 import VideoStream from "./videoStream";
+import Loader from "react-loader-spinner";
 class VisualVideoList extends React.Component {
   state = {
     playStatus: false,
@@ -28,7 +29,7 @@ class VisualVideoList extends React.Component {
       this.setState(() => ({ isFullScreen: true }));
     }
   };
-  searchResulsEl = () => {
+  getSearchResulsEl = () => {
     const { videoInfos, error, emptyMessage } = this.props;
 
     return (
@@ -49,25 +50,35 @@ class VisualVideoList extends React.Component {
       })
     );
   };
-  errorEl = () => {
+  getErrorEl = () => {
     const { error } = this.props;
     return error && <h1 className="search-result--error">{error}</h1>;
   };
-
-  emptyMessageEl = () => {
+  getEmptyMessageEl = () => {
     const { emptyMessage } = this.props;
     console.log(emptyMessage);
     return (
       emptyMessage && <h1 className="search-result--error">{emptyMessage}</h1>
     );
   };
+
+  getLoadingEl = () => {
+    const loading = this.props.loading;
+    return (
+      loading && (
+        <div class="loader">
+          <Loader type="Puff" color="#00BFFF" height="100" width="100" />
+        </div>
+      )
+    );
+  };
   render() {
     return (
       <div className="search-result">
-        {this.searchResulsEl()}
-        {this.emptyMessageEl()}
-        {this.errorEl()}
-
+        {this.getSearchResulsEl()}
+        {this.getEmptyMessageEl()}
+        {this.getErrorEl()}
+        {this.getLoadingEl()}
         <VideoStream
           title={this.state.videoTitle}
           isFullScreen={this.state.isFullScreen}
@@ -85,7 +96,8 @@ const mapStateToProps = state => {
   return {
     videoInfos: state.videoInfos,
     error: state.fetchStatus.error,
-    emptyMessage: state.fetchStatus.emptyMessage
+    emptyMessage: state.fetchStatus.emptyMessage,
+    loading: state.fetchStatus.loading
   };
 };
 

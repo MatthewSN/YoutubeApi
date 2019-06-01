@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import VideoOverView from "./videoOverView";
-import VideoStream from "./videoStream";
+import VideoOverView from "./VideoOverView";
+import VideoStream from "./VideoStream";
 import Loader from "react-loader-spinner";
 class VisualVideoList extends React.Component {
   state = {

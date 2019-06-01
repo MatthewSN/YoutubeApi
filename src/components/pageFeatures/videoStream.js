@@ -14,24 +14,22 @@ const getBtnsEl = (onVideoClose, onButtonResize, streamType) => (
 const getIframeEl = (playStatus, streamType, videoId, title) =>
   playStatus && (
     <React.Fragment>
-      <div className={streamType}>
-        <div className={`${streamType}--container`}>
-          {" "}
-          <div className={`${streamType}--wrap`}>
-            <iframe
-              className={`${streamType}--video`}
-              src={`https://www.youtube.com/embed/${videoId}`}
-              frameBorder="0"
-              allow="accelerometer;
+      <div className={`${streamType}--container`}>
+        {" "}
+        <div className={`${streamType}--wrap`}>
+          <iframe
+            className={`${streamType}--video`}
+            src={`https://www.youtube.com/embed/${videoId}`}
+            frameBorder="0"
+            allow="accelerometer;
               autoplay;
               encrypted-media;
               gyroscope;
               picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-          {title && <h1 className={`${streamType}--title`}>{title}</h1>}
+            allowFullScreen
+          />
         </div>
+        {title && <h1 className={`${streamType}--title`}>{title}</h1>}
       </div>
     </React.Fragment>
   );
@@ -48,8 +46,12 @@ const VideoStream = ({
 
   return (
     <React.Fragment>
-      {getBtnsEl(onVideoClose, onButtonResize, streamType)}
-      {getIframeEl(playStatus, streamType, videoId, title)}
+      {playStatus && (
+        <div className={streamType}>
+          {getBtnsEl(onVideoClose, onButtonResize, streamType)}
+          {getIframeEl(playStatus, streamType, videoId, title)}
+        </div>
+      )}
     </React.Fragment>
   );
 };

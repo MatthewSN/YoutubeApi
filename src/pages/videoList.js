@@ -1,8 +1,8 @@
 import React from "react";
-import SearchForm from "../pageFeatures/searchForm";
-import { setVideoInfos,fetchData } from "../actions/videoInfo";
+import SearchForm from "../components/pageFeatures/SearchForm";
+import { setVideoInfos,fetchData } from "../components/actions/videoInfo";
 import { connect } from "react-redux";
-import VisualVideoList from "../pageFeatures/visualVideoList";
+import VisualVideoList from "../components/pageFeatures/VisualVideoList";
 
 const VideoList = props => (
   <div>

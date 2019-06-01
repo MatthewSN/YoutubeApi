@@ -47,6 +47,7 @@
     position: absolute;
     border-radius: 50rem;
     padding: 0.5rem;
+ 
     color: $color-yellow1;
     background-color: $color-black1;
     border: 3px solid $color-yellow1;
@@ -111,6 +112,7 @@
     border-radius: 50rem;
     background-color: $color-yellow1;
     border: 1px solid $color-black2;
+
     cursor: pointer;
     &:focus {
       outline: none;

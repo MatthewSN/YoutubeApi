@@ -1,5 +1,7 @@
 module.exports = {
   presets: [
+      
+    "@babel/preset-react",
     [
       "@babel/preset-env",
       {
@@ -7,8 +9,7 @@ module.exports = {
           node: "current"
         }
       }
-    ],
-    "@babel/preset-react"
+    ]
   ],
   plugins: ["transform-class-properties"]
 };

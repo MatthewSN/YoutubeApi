@@ -5,11 +5,10 @@ import configureStore from "./stores/configureStore";
 import { Provider } from "react-redux";
 import "./styles/main.scss";
 
-
 const store = configureStore();
-store.subscribe(()=>{
-  console.log(store.getState())
-})
+store.subscribe(() => {
+  console.log(store.getState());
+});
 const jsx = (
   <Provider store={store}>
     <AppRouter />
